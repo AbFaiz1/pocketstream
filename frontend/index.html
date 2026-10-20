@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080912">
+  <meta name="description" content="Your personal cinematic media library.">
+  <title>PocketStream — Your Private Cinema</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a href="/" class="brand" aria-label="PocketStream home">
+        <span class="brand-icon">P<span>▶</span></span>
+        <span>Pocket<span class="brand-light">Stream</span></span>
+      </a>
+
+      <p class="nav-label">WORKSPACE</p>
+
+      <nav class="navigation" aria-label="Main navigation">
+        <a href="#home" class="nav-item active">
+          <span class="nav-icon">⌂</span>
+          Home
+        </a>
+        <a href="#library" class="nav-item">
+          <span class="nav-icon">▤</span>
+          My library
+        </a>
+        <a href="#player-section" class="nav-item">
+          <span class="nav-icon">▷</span>
+          Now playing
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="private-card">
+          <div class="private-icon">✦</div>
+          <h3>Your space. Your rules.</h3>
+          <p>Your personal media collection, right where it belongs.</p>
+          <span class="privacy-status">
+            <span class="status-dot"></span>
+            LOCAL LIBRARY
+          </span>
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="footer-mark">P</span>
+          <div>
+            <strong>PocketStream</strong>
+            <span>Personal Edition</span>
+          </div>
+          <span class="version">v1.0</span>
+        </div>
+      </div>
+    </aside>
+
+    <main id="home" class="main-content">
+      <header class="topbar">
+        <p id="connection-status">Finding local address...</p>
+        <p id="connection-instructions"></p>
+        <div class="breadcrumb">
+          <span>Workspace</span>
+          <span class="breadcrumb-separator">/</span>
+          <strong>Home</strong>
+        </div>
+
+        <div class="topbar-right">
+          <span class="connection">
+            <span class="status-dot"></span>
+            Your library
+          </span>
+          <div class="avatar" aria-label="Personal library">P</div>
+        </div>
+      </header>
+
+      <section class="welcome">
+        <div>
+          <p class="eyebrow"><span class="sparkle">✳</span> YOUR PERSONAL CINEMA</p>
+          <h1>Your cinema.<br><span>Your own universe.</span></h1>
+          <p class="welcome-description">
+            Every story you love, all in one beautiful place.
+          </p>
+        </div>
+
+        <a class="outline-button" href="#library">
+          Explore library <span>↘</span>
+        </a>
+      </section>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-orb"></div>
+          <div class="hero-mountain mountain-back"></div>
+          <div class="hero-mountain mountain-front"></div>
+          <div class="hero-grid"></div>
+        </div>
+
+        <div class="hero-content">
+          <span class="featured-tag">
+            <span class="featured-dot"></span>
+            YOUR FEATURED COLLECTION
+          </span>
+
+          <h2 id="hero-title">Your next<br>great escape.</h2>
+
+          <p id="hero-description">
+            Your favorite videos deserve the big-screen treatment.
+          </p>
+
+          <div class="hero-meta">
+            <span class="meta-pill">✦ Personal collection</span>
+            <span class="meta-pill">HD-ready player</span>
+          </div>
+
+          <button id="featured-play" class="primary-button" type="button">
+            <span class="button-play">▶</span>
+            <span id="featured-play-label">Explore your videos</span>
+            <span class="button-arrow">↗</span>
+          </button>
+        </div>
+
+        <div class="hero-side-label">MADE FOR YOUR MOMENTS</div>
+        <div class="hero-number">01 <span>/ 01</span></div>
+      </section>
+
+      <section id="library" class="library-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR COLLECTION</p>
+            <h2>Inside your library<span class="heading-period">.</span></h2>
+            <p class="section-subtitle">
+              All your favorite moments, ready when you are.
+            </p>
+          </div>
+
+          <div class="library-count">
+            <span class="count-number" id="video-count">—</span>
+            <span>VIDEOS</span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <label class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input
+              id="video-search"
+              type="search"
+              placeholder="Find your next favorite..."
+              autocomplete="off"
+              aria-label="Search videos"
+            >
+            <kbd>SEARCH</kbd>
+          </label>
+
+          <span id="sort-label" class="sort-label">YOUR COLLECTION</span>
+        </div>
+
+        <p id="status" class="status-message" role="status" aria-live="polite">
+          Preparing your cinema...
+        </p>
+
+        <div id="video-list" class="video-grid"></div>
+      </section>
+
+      <section id="player-section" class="player-section">
+        <div class="section-heading player-heading">
+          <div>
+            <p class="eyebrow">THE BIG SCREEN</p>
+            <h2>Settle in<span class="heading-period">.</span></h2>
+            <p class="section-subtitle">
+              Your next movie night starts right here.
+            </p>
+          </div>
+          <span class="cinema-badge"><span>✦</span> CINEMA MODE</span>
+        </div>
+
+        <div class="player-frame">
+          <div id="player-placeholder" class="player-placeholder">
+            <div class="placeholder-ring">
+              <span>▶</span>
+            </div>
+            <h3>Your screen is waiting.</h3>
+            <p>Choose any video above and let the story begin.</p>
+            <a href="#library" class="text-link">Browse your collection ↗</a>
+          </div>
+
+          <video
+            id="player"
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Video player"
+          ></video>
+        </div>
+
+        <div class="now-playing-bar">
+          <div class="now-playing-art">♫</div>
+          <div class="now-playing-info">
+            <span class="now-playing-label">NOW PLAYING</span>
+            <strong id="now-playing">Nothing playing just yet</strong>
+          </div>
+          <span class="playing-indicator">
+            <span></span><span></span><span></span><span></span>
+          </span>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Library statistics">
+        <article class="stat-card">
+          <span class="stat-icon purple">▤</span>
+          <span class="stat-label">YOUR COLLECTION</span>
+          <strong id="stat-videos">—</strong>
+          <span class="stat-footnote">Videos ready to play</span>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon blue">◈</span>
+          <span class="stat-label">LIBRARY SIZE</span>
+          <strong id="stat-size">—</strong>
+          <span class="stat-footnote">Total video storage</span>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon pink">✧</span>
+          <span class="stat-label">YOUR EXPERIENCE</span>
+          <strong>Personal</strong>
+          <span class="stat-footnote">A cinema made for you</span>
+        </article>
+      </section>
+
+      <footer class="main-footer">
+        <a href="#home" class="footer-brand">P<span>✦</span> PocketStream</a>
+        <span>Made for your moments. Built for your space.</span>
+        <a href="#home" class="back-to-top">BACK TO TOP ↑</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
