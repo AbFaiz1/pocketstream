@@ -234,6 +234,10 @@ async function playVideo(video) {
   window.currentVideo = video;
   player.classList.add("is-visible");
   playerPlaceholder.hidden = true;
+  const pt = document.querySelector("#player-title");
+  if (pt) pt.textContent = cleanTitle(video.name);
+  const ps = document.querySelector("#player-section");
+  if (ps) { window.scrollTo({ top: ps.offsetTop - 20, behavior: "smooth" }); }
   updateNowPlaying(video);
   const metadata = await loadTracks(video);
   // An extension rename does not convert the file: detect Matroska/WebM from
@@ -242,7 +246,6 @@ async function playVideo(video) {
   const needsCompatibility = getExtension(video.name) === "MKV" ||
     container.includes("matroska") || container.includes("webm");
   loadSource({ compatible: needsCompatibility, fallbackHls: false });
-  document.querySelector("#player-section").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 async function loadVideos() {
