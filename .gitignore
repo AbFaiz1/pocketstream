@@ -10,3 +10,12 @@ wheels/
 .venv
 .env
 .DS_Store
+
+# Media library (personal)
+media/
+
+# Transcode cache
+.pocketstream-cache/
+
+# Python version pin
+.python-version

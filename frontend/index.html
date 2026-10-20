@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/hls.min.js" defer></script>
   <script src="/assets/app.js" defer></script>
 </head>
 
@@ -35,7 +36,11 @@
         </a>
         <a href="#library" class="nav-item">
           <span class="nav-icon">▤</span>
-          My library
+          Movies
+        </a>
+        <a href="#series" class="nav-item">
+          <span class="nav-icon">▦</span>
+          Series
         </a>
         <a href="#player-section" class="nav-item">
           <span class="nav-icon">▷</span>
@@ -163,7 +168,10 @@
             <kbd>SEARCH</kbd>
           </label>
 
-          <span id="sort-label" class="sort-label">YOUR COLLECTION</span>
+          <div class="library-tabs" role="tablist" aria-label="Library view">
+            <button class="library-tab is-active" type="button" data-library-view="movies" role="tab" aria-selected="true">Movies</button>
+            <button class="library-tab" type="button" data-library-view="series" role="tab" aria-selected="false">Series</button>
+          </div>
         </div>
 
         <p id="status" class="status-message" role="status" aria-live="polite">
@@ -171,6 +179,27 @@
         </p>
 
         <div id="video-list" class="video-grid"></div>
+      </section>
+
+      <section id="series" class="series-section" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR SERIES</p>
+            <h2>Pick up where you left off<span class="heading-period">.</span></h2>
+            <p class="section-subtitle">Choose a show, then select an episode.</p>
+          </div>
+        </div>
+        <div id="series-list" class="series-grid"></div>
+        <div id="episode-panel" class="episode-panel" hidden>
+          <div class="episode-panel-heading">
+            <div>
+              <p class="eyebrow">EPISODES</p>
+              <h3 id="episode-series-title"></h3>
+            </div>
+            <button id="close-episodes" class="subtle-button" type="button">Close</button>
+          </div>
+          <div id="episode-list" class="episode-list"></div>
+        </div>
       </section>
 
       <section id="player-section" class="player-section">
@@ -202,6 +231,20 @@
             preload="metadata"
             aria-label="Video player"
           ></video>
+        </div>
+
+        <div id="player-options" class="player-options" hidden>
+          <label class="track-picker">
+            <span>Audio</span>
+            <select id="audio-track" aria-label="Choose audio track"></select>
+          </label>
+          <label class="track-picker" id="subtitle-picker" hidden>
+            <span>Subtitles</span>
+            <select id="subtitle-track" aria-label="Choose subtitle track"></select>
+          </label>
+          <span id="playback-note" class="playback-note"></span>
+        </div>
+        <a id="external-play" class="subtle-button" style="margin-top:8px;display:inline-block;text-decoration:none" href="#" onclick="if(!window.currentVideo){alert('Pehle video play karo');return false;}var u=location.origin+'/api/file/'+window.currentVideo.relative_path.split('/').map(encodeURIComponent).join('/');this.href='vlc://'+u.replace(/^https?:\/\//,'');navigator.clipboard.writeText(u).catch(()=>{});return true;">Open in VLC (one tap)</a>
         </div>
 
         <div class="now-playing-bar">

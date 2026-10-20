@@ -690,6 +690,121 @@ input:focus-visible {
   margin: 25px 0 20px;
 }
 
+.library-tabs,
+.player-options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.library-tab,
+.subtle-button {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 9px 13px;
+}
+
+.library-tab.is-active {
+  border-color: rgba(167, 139, 250, 0.55);
+  background: rgba(139, 92, 246, 0.18);
+  color: white;
+}
+
+.series-section {
+  padding: 20px 0 36px;
+}
+
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.series-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 108px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.series-card:hover {
+  border-color: rgba(167, 139, 250, 0.55);
+  transform: translateY(-3px);
+}
+
+.series-symbol {
+  font-size: 31px;
+}
+
+.series-card-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.series-card-copy strong { font-family: "Outfit", sans-serif; font-size: 16px; }
+.series-card-copy span { color: #c0b9e8; font-size: 12px; }
+.series-arrow { margin-left: auto; color: #d6cbff; font-size: 22px; }
+
+.episode-panel {
+  margin-top: 28px;
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.episode-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.episode-panel-heading h3 { margin: 0; font-family: "Outfit", sans-serif; font-size: 22px; }
+.episode-list { display: grid; gap: 10px; }
+
+.episode-card {
+  display: grid;
+  grid-template-columns: 115px 1fr;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(8, 9, 18, 0.5);
+  cursor: pointer;
+}
+
+.episode-art { display: grid; place-items: center; min-height: 90px; position: relative; }
+.episode-art .art-type { position: absolute; top: 9px; left: 10px; }
+.episode-art .art-symbol { font-size: 25px; }
+.episode-body { padding: 14px 16px; }
+.episode-title { margin: 0 0 8px; font-size: 14px; }
+
+.player-options {
+  flex-wrap: wrap;
+  margin-top: 15px;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.track-picker { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
+.track-picker select { max-width: 220px; padding: 7px 27px 7px 9px; border: 1px solid var(--border); border-radius: 8px; background: #191a2a; color: var(--text); }
+.playback-note { margin-left: auto; color: #aaa4d4; font-size: 11px; }
+
 .search-box {
   display: flex;
   width: min(390px, 100%);
